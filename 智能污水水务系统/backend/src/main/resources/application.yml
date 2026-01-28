@@ -1,0 +1,38 @@
+﻿spring:
+  datasource:
+    # MySQL 数据库连接配置
+    url: jdbc:mysql://localhost:3306/fruit_maturity?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: root  # 替换成你的 MySQL 用户名（默认是root）
+    password: hyz206520  # 替换成你自己的 MySQL 密码
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 300000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect  # MySQL 方言
+    show-sql: false
+
+jackson:
+  time-zone: Asia/Shanghai
+
+jwt:
+  secret: "change-this-to-a-long-random-secret-please-32-bytes-minimum"
+  expiration-seconds: 86400
+
+app:
+  cors:
+    allowed-origins: "http://localhost:5173"
+
+ai:
+  provider: "mock"
+  deepseek:
+    api-key: ""
+    base-url: "https://api.deepseek.com"
